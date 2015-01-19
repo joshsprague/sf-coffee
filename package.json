@@ -1,0 +1,8 @@
+{
+  "name": "sf-coffee",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.11.0",
+    "mongoose": "^3.8.21"
+  }
+}
