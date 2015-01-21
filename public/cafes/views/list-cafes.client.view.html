@@ -1,0 +1,17 @@
+<section data-ng-controller="CafesController" data-ng-init="find()">
+  <h1>Cafes</h1>
+  <ul>
+    <li data-ng-repeat="cafe in cafes">
+      <a data-ng-href="#!/cafes/{{cafe._id}}" data-ng-bind="cafe.name"></a>
+      <br>
+      <small data-ng-bind="cafe.created | date: 'medium'"></small>
+      <small>/</small>
+      <small data-ng-bind="cafe.name"></small>
+      <p data-ng-bind="cafe.description"></p>
+    </li>
+  </ul>
+  <div data-ng-hide="!cafes || cafes.length">
+    No cafes yet, why don't you
+    <a href="/#!/cafes/create">create one</a>?
+  </div>
+</section>
