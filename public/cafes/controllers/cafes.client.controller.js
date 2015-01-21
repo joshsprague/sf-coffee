@@ -2,16 +2,17 @@ angular.module('cafes').controller('CafesController',
   ['$scope', '$routeParams', '$location', 'Cafes',
   function($scope, $routeParams, $location, Cafes) {
 
+    var layer = new L.StamenTileLayer("toner-lite");
+    var map = new L.Map("map", {
+      center: new L.LatLng(37.75, -122.45),
+      zoom: 12
+    });
+
     $scope.find = function() {
       $scope.cafes = Cafes.query();
     };
 
     var loadMap = function() {
-      var layer = new L.StamenTileLayer("toner-lite");
-      var map = new L.Map("map", {
-        center: new L.LatLng(37.75, -122.45),
-        zoom: 12
-      });
 
       map.addLayer(layer);
 
@@ -29,5 +30,24 @@ angular.module('cafes').controller('CafesController',
       map.on('locationfound', onLocationFound);
     };
 
+    var loadCafes = function() {
+      var cafes = Cafes.query(function() {
+        var redIcon = L.icon({
+          iconUrl: 'img/redCoffeeMug.png'
+        });
+
+        var redIconBox = L.icon({
+          iconUrl: 'img/redCoffee.png'
+        });
+
+        console.log('cafe[0]', cafes[0]["coordinates"]["longitude"]);
+        for (var i = 0; i < cafes.length; i++) {
+          L.marker([cafes[i]["coordinates"]["longitude"], cafes[i]["coordinates"]["latitude"]], {icon: redIconBox}).bindPopup(cafes[i]["name"]+"<br>"+cafes[i]["description"]).addTo(map);
+        };
+      });
+    };
+
+
     loadMap();
+    loadCafes();
   }]);
