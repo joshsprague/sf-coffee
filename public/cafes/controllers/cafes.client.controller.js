@@ -15,8 +15,19 @@ angular.module('cafes').controller('CafesController',
 
       map.addLayer(layer);
 
+      //Set map to start at mobile location
       map.locate({setView: true, maxZoom: 16});
-    }
+
+      function onLocationFound(e) {
+        var radius = e.accuracy / 2;
+        L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+        L.circle(e.latlng, radius).addTo(map);
+      }
+
+      //Show error if can't get location
+      map.on('locationfound', onLocationFound);
+    };
 
     loadMap();
   }]);
