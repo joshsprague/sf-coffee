@@ -7,18 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   </head>
   <body>
-    Welcome to the coffee map.
-
     <section ng-view></section>
     <script type="text/javascript" src="/lib/leaflet/dist/leaflet.js"></script>
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+    <script type="text/javascript" src="/lib/lodash/dist/lodash.js"></script>
 
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
     <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/lib/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
 
     <script type="text/javascript" src="/cafes/cafes.client.module.js"></script>
     <script type="text/javascript" src="/cafes/controllers/cafes.client.controller.js"></script>
+    <script type="text/javascript" src="/cafes/controllers/map.client.controller.js"></script>
+    <script type="text/javascript" src="/cafes/services/cafe.client.service.js"></script>
     <script type="text/javascript" src="/cafes/services/cafes.client.service.js"></script>
     <script type="text/javascript" src="/cafes/config/cafes.client.routes.js"></script>
 

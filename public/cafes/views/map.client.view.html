@@ -1,3 +1,10 @@
 <section ng-controller='CafesController'>
+  <div class='header'>
+    <div class='header-name'>SF Coffee Map</div>
+    <div class='header-toolbar'>
+      <div class='header-toolbar-btn' ng-click='reloadCafes()'>Open Now</div>
+      <div class='header-toolbar-btn' ng-click='clearMarkers()'>Clear Map</div>
+    </div>
+  </div>
   <div id='map'></div>
 </section>

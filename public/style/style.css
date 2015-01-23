@@ -4,34 +4,60 @@
 }
 
 body {
-  padding: 0;
+  background-color: #141301;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   margin: 0;
+  padding: 0;
   }
 
-body, html, #map, section{
+body, html, #map, section, .angular-leaflet-map {
+  -webkit-font-smoothing: antialiased;
   height: 100%;
+  width: 100%;
   }
+
 h1 {
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background-color: #222;
   color: #fff;
-  padding: 0;
-  padding-left: 5px;
   margin: 0;
-  }
+  padding-left: 5px;
+  padding: 0;
+}
+
 h4 {
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background-color: #222;
   color: #fff;
-  padding: 0;
-  padding-left: 5px;
-  padding-bottom: 5px;
   margin: 0;
-  }
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding: 0;
+}
+
 a {
-  text-decoration: none;
   color: #3a8ace;
-  }
-.smaller {
-  font-size: .5em;
+  text-decoration: none;
+}
+
+.header {
+  background-color: #A4031F;
+  box-sizing: border-box;
+  color: #E5E7E6;
+  font-size: 20px;
+  height: 50px;
+  padding: 12px 0 0 15px;
+  width: 100%;
+}
+
+.header-name {
+  display: inline-block;
+  width: 20%;
+}
+
+.header-toolbar {
+  display: inline-block;
+}
+
+.header-toolbar-btn {
+  cursor: pointer;
+  display: inline-block;
 }

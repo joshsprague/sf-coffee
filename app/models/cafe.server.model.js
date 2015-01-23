@@ -20,6 +20,10 @@ var CafeSchema = new Schema({
   coordinates: {
     latitude: Number,
     longitude: Number
+  },
+  hours: {
+    open: Array,
+    close: Array
   }
 });
 

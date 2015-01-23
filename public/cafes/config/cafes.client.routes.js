@@ -6,6 +6,9 @@ angular.module('cafes').config(['$routeProvider', function($routeProvider) {
     .when('/map', {
       templateUrl: 'cafes/views/map.client.view.html'
     })
+    .when('/test', {
+      templateUrl: 'cafes/views/map-test.client.view.html'
+    })
     .otherwise({
       redirectTo: '/'
     });
