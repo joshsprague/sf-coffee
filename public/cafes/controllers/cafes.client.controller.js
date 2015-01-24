@@ -9,6 +9,17 @@ angular.module('cafes').controller('CafesController',
     });
     $scope.markers = new L.FeatureGroup();
 
+    $scope.openTimeOptions = [{
+      time: 500,
+      label: "Before 5"
+    }, {
+      time: 600,
+      label: "Before 6"
+    }, {
+      time: 700,
+      label: "Before 7"
+    }];
+
     $scope.find = function() {
       $scope.cafes = Cafe.query();
     };
@@ -68,7 +79,7 @@ angular.module('cafes').controller('CafesController',
       var day = today.getDay();
       var hour = today.getHours();
       var minutes = today.getMinutes();
-      var time = parseInt(hour.toString() + minutes.toString());
+      var time = parseInt(hour.toString() + (Math.ceil(minutes/10) * 10).toString());
 
       for(var i = 0; i < cafes.length; i++) {
         if (cafes[i]["hours"]["open"][day] < time && cafes[i]["hours"]["close"][day] > time) {

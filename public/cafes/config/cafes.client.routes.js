@@ -10,6 +10,6 @@ angular.module('cafes').config(['$routeProvider', function($routeProvider) {
       templateUrl: 'cafes/views/map-test.client.view.html'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/map'
     });
 }]);
