@@ -1,0 +1,19 @@
+<section data-ng-controller="CafesController" data-ng-init="findOne()">
+  <h1>Edit Cafe</h1>
+  <form data-ng-submit="update()" novalidate>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" data-ng-model="cafe.name" id="name">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea type="text" data-ng-model="cafe.description" id="description" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+      <input type="submit" value="Update">
+    </div>
+    <div data-ng-show="error">
+      <strong data-ng-bind="error"></strong>
+    </div>
+  </form>
+</section>

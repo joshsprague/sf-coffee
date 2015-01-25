@@ -56,6 +56,7 @@ exports.update = function(req, res) {
   var cafe = req.cafe;
 
   cafe.name = req.body.name;
+  cafe.description = req.body.description;
 
   cafe.save(function(err) {
     if (err) {

@@ -1,8 +1,17 @@
-<section ng-controller='CafesController'>
+<section ng-controller='MapController'>
   <div class='header'>
     <div class='header-name'>SF Coffee Map</div>
     <div class='header-toolbar'>
       <div class='header-toolbar-btn' ng-click='reloadCafes()'>Open Now</div>
+      <div class='time-selectors'>
+        <select ng-model="afadfa" ng-options="item.label for item in openTimeOptions track by item.time">
+        </select>
+        <select>
+          <option value="1901">After 7</option>
+          <option value="2001">After 8</option>
+          <option value="2101">After 9</option>
+        </select>
+      </div>
       <div class='header-toolbar-btn' ng-click='clearMarkers()'>Clear Map</div>
     </div>
   </div>

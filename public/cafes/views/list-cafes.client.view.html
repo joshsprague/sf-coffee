@@ -1,7 +1,7 @@
 <section data-ng-controller="CafesController" data-ng-init="find()">
   <h1>Cafes</h1>
   <ul>
-    <li data-ng-repeat="cafe in cafe">
+    <li data-ng-repeat="cafe in cafes">
       <a data-ng-href="#!/cafes/{{cafe._id}}" data-ng-bind="cafe.name"></a>
       <br>
       <small data-ng-bind="cafe.created | date: 'medium'"></small>
