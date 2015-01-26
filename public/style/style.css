@@ -83,6 +83,12 @@ a {
 .time-selectors > input {
 }
 
+.hours > ul{
+  list-style-type: none;
+  font-size: 10px;
+  padding: 0;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media (max-width: 480px) {
   .header {

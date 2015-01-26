@@ -72,12 +72,26 @@ angular.module('cafes').controller('MapController',
         iconUrl: 'img/redCoffee.png'
       });
 
+      var getHoursTemplate = function(cafe) {
+        var template = "<div class='hours'><ul>"
+        var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+        for (var i = 0; i < cafe.hours.open.length; i++) {
+          template = template + "<li>" + days[i] + ": " + cafe.hours.open[i] + " - " + cafe.hours.close[i] + "</li>";
+        };
+
+        template = template + "</ul></div>";
+
+        return template;
+      };
+
       if (options) {
         cafes = $scope.findOpenNow(cafes);
       }
       for (var i = 0; i < cafes.length; i++) {
+        console.log('hours', getHoursTemplate(cafes[i]));
         var marker = L.marker([cafes[i]["coordinates"]["longitude"], cafes[i]["coordinates"]["latitude"]], {icon: redIconBox});
-        marker.bindPopup(cafes[i]["name"]+"<br>"+cafes[i]["description"]);
+        marker.bindPopup(cafes[i]["name"]+"<br>"+ getHoursTemplate(cafes[i]));
 
         $scope.markers.addLayer(marker);
       };
