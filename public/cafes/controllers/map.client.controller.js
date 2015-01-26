@@ -5,9 +5,12 @@ angular.module('cafes').controller('MapController',
     $scope.layer = new L.StamenTileLayer("toner-lite");
     $scope.map = new L.Map("map", {
       center: new L.LatLng(37.75, -122.45),
-      zoom: 12
+      zoom: 12,
+      zoomControl: false
     });
     $scope.markers = new L.FeatureGroup();
+
+    $scope.map.addControl(L.control.zoom({position: 'bottomright'}));
 
     $scope.openTimeOptions = [{
       time: 500,

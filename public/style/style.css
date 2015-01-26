@@ -10,14 +10,20 @@ body {
   padding: 0;
   }
 
-body, html, section, .angular-leaflet-map {
+body, html, section {
   -webkit-font-smoothing: antialiased;
   height: 100%;
   width: 100%;
   }
 
+.map-container {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
 #map {
-  height: 95%;
+  height: 100%;
   width: 100%;
 }
 h1 {
@@ -43,14 +49,16 @@ a {
 }
 
 .header {
-  background-color: #A4031F;
+  background-color: rgba(164, 3, 31, .8);
   box-sizing: border-box;
   color: #E5E7E6;
   font-size: 20px;
   height: 5%;
   min-height: 50px;
   padding: 12px 0 0 15px;
+  position: absolute;
   width: 100%;
+  z-index: 10;
 }
 
 .header-name {
@@ -73,4 +81,17 @@ a {
 }
 
 .time-selectors > input {
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media (max-width: 480px) {
+  .header {
+    font-size: 16px;
+  }
+  .header-name {
+    width: 40%;
+  }
+  .leaflet-control-zoom{
+    display: none;
+  }
 }
