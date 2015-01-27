@@ -1,13 +1,13 @@
 angular.module('cafes').controller('CafesController',
-  ['$scope', '$routeParams', '$location', '$sce', 'Cafe',
-  function($scope, $routeParams, $location, $sce, Cafe) {
+  ['$scope', '$routeParams', '$location', '$sce', 'Cafes',
+  function($scope, $routeParams, $location, $sce, Cafes) {
 
     $scope.find = function() {
-      $scope.cafes = Cafe.query();
+      $scope.cafes = Cafes.query();
     };
 
     $scope.findOne = function() {
-      $scope.cafe = Cafe.get({
+      $scope.cafe = Cafes.get({
         cafeId: $routeParams.cafeId
       });
     };

@@ -1,6 +1,6 @@
 angular.module('cafes').controller('MapController',
-  ['$scope', '$routeParams', '$location', 'Cafe',
-  function($scope, $routeParams, $location, Cafe) {
+  ['$scope', '$routeParams', '$location', 'Cafes',
+  function($scope, $routeParams, $location, Cafes) {
 
     $scope.layer = new L.StamenTileLayer("toner-lite");
     $scope.map = new L.Map("map", {
@@ -24,11 +24,11 @@ angular.module('cafes').controller('MapController',
     }];
 
     $scope.find = function() {
-      $scope.cafes = Cafe.query();
+      $scope.cafes = Cafes.query();
     };
 
     $scope.findOne = function() {
-      $scope.cafe = Cafe.get({
+      $scope.cafe = Cafes.get({
         cafeId: $routeParams.cafeId
       });
     };
@@ -124,7 +124,7 @@ angular.module('cafes').controller('MapController',
       $scope.loadCafes($scope.cafes, "open")
     };
 
-    var cafes = Cafe.query(function() {
+    var cafes = Cafes.query(function() {
       $scope.cafes = cafes;
 
       $scope.loadMap();
