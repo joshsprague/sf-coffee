@@ -89,7 +89,6 @@ angular.module('cafes').controller('MapController',
         cafes = $scope.findOpenNow(cafes);
       }
       for (var i = 0; i < cafes.length; i++) {
-        console.log('hours', getHoursTemplate(cafes[i]));
         var marker = L.marker([cafes[i]["coordinates"]["longitude"], cafes[i]["coordinates"]["latitude"]], {icon: redIconBox});
         marker.bindPopup(cafes[i]["name"]+"<br>"+ getHoursTemplate(cafes[i]));
 
