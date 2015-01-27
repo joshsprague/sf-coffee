@@ -1,13 +1,12 @@
 <section data-ng-controller="CafesController" data-ng-init="find()">
-  <h1>Cafes</h1>
-  <ul>
+  <div class='header'>
+    <div class='header-title'>Cafes</div>
+  </div>
+  <ul class="cafe-list">
     <li data-ng-repeat="cafe in cafes">
       <a data-ng-href="#!/cafes/{{cafe._id}}" data-ng-bind="cafe.name"></a>
       <br>
-      <small data-ng-bind="cafe.created | date: 'medium'"></small>
-      <small>/</small>
-      <small data-ng-bind="cafe.name"></small>
-      <p data-ng-bind="cafe.description"></p>
+      <p class='cafe-description' data-ng-bind-html="renderHtml(cafe.description)"></p>
     </li>
   </ul>
   <div data-ng-hide="!cafes || cafes.length">

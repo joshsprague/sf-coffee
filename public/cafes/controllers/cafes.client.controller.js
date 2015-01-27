@@ -1,6 +1,6 @@
 angular.module('cafes').controller('CafesController',
-  ['$scope', '$routeParams', '$location', 'Cafe',
-  function($scope, $routeParams, $location, Cafe) {
+  ['$scope', '$routeParams', '$location', '$sce', 'Cafe',
+  function($scope, $routeParams, $location, $sce, Cafe) {
 
     $scope.find = function() {
       $scope.cafes = Cafe.query();
@@ -18,6 +18,10 @@ angular.module('cafes').controller('CafesController',
       }, function(errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+    };
+
+    $scope.renderHtml = function(html_code) {
+      return $sce.trustAsHtml(html_code);
     };
 
   }]);

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #141301;
+  background-color: #E5E7E6;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -55,13 +55,16 @@ a {
   font-size: 20px;
   height: 5%;
   min-height: 50px;
-  padding: 12px 0 0 15px;
-  position: absolute;
+  padding: 12px 0 0 40px;
   width: 100%;
+}
+
+.map-header {
+  position: absolute;
   z-index: 10;
 }
 
-.header-name {
+.header-title {
   display: inline-block;
   width: 20%;
 }
@@ -87,6 +90,19 @@ a {
   list-style-type: none;
   font-size: 10px;
   padding: 0;
+}
+
+.cafe-list {
+  list-style-type: none;
+}
+
+.cafe-list a {
+  color: #A4031F;
+  font-size: 20px;
+}
+
+.cafe-list .cafe-description {
+  max-width: 600px;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
