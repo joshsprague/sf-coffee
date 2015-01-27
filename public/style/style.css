@@ -109,8 +109,9 @@ a {
 @media (max-width: 480px) {
   .header {
     font-size: 16px;
+    padding-left: 10px;
   }
-  .header-name {
+  .header-title {
     width: 40%;
   }
   .leaflet-control-zoom{
