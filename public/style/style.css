@@ -49,14 +49,19 @@ a {
 }
 
 .header {
-  background-color: rgba(164, 3, 31, .8);
-  box-sizing: border-box;
+  -moz-box-shadow: 0 0 6px rgba(0,0,0, 0.3);
+  -webkit-box-shadow: 0 0 6px rgba(0,0,0, 0.3);
+  -webkit-box-sizing: border-box;
+  box-shadow: 0 0 6px rgba(0,0,0, 0.3);
   color: #E5E7E6;
   font-size: 20px;
   height: 5%;
   min-height: 50px;
   padding: 12px 0 0 40px;
   width: 100%;
+  background: -webkit-linear-gradient(90deg, rgba(164, 3, 31, .9) 20%, rgb(164, 3, 31) 80%);
+  background: -o-linear-gradient(90deg, rgba(164, 3, 31, .9) 20%, rgb(164, 3, 31) 80%);
+  background: linear-gradient(360deg, rgba(164, 3, 31, .9) 20%, rgb(164, 3, 31) 80%);
 }
 
 .map-header {
@@ -65,11 +70,13 @@ a {
 }
 
 .header-title {
+  -webkit-box-sizing: border-box;
   display: inline-block;
   width: 20%;
 }
 
 .header-toolbar {
+  -webkit-box-sizing: border-box;
   display: inline-block;
 }
 
@@ -87,8 +94,8 @@ a {
 }
 
 .hours > ul{
-  list-style-type: none;
   font-size: 10px;
+  list-style-type: none;
   padding: 0;
 }
 
@@ -109,9 +116,13 @@ a {
 @media (max-width: 480px) {
   .header {
     font-size: 16px;
-    padding-left: 10px;
+    padding-left: 16px;
   }
   .header-title {
+    width: 50%;
+  }
+  .header-toolbar {
+    text-align: right;
     width: 40%;
   }
   .leaflet-control-zoom{
