@@ -1,8 +1,12 @@
 <section ng-controller="MapController">
   <snap-drawer>
-    <p>Hello from drawer!</p>
-    <div class="header-toolbar-btn" ng-click="reloadCafes()">Open Now</div>
-    <button snap-close>Close</button>
+    <div class="nav">
+      <div class="nav-item" ng-click="reloadCafes()">Open Now</div>
+      <div class="nav-item">
+        <a href="/#!/cafes">Cafe List</a>
+      </div>
+    </div>
+    <div class="nav-item" snap-close>Close</div>
   </snap-drawer>
   <snap-content id="map-content">
     <div class="header map-header">

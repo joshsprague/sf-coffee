@@ -1,5 +1,11 @@
 <section data-ng-controller="CafesController" data-ng-init="find()">
   <snap-drawer>
+    <div class="nav">
+      <div class="nav-item">
+        <a href="/#!/map">Cafe Map</a>
+      </div>
+    </div>
+    <div class="nav-item" snap-close>Close</div>
   </snap-drawer>
   <snap-content id="map-content">
     <div class="header">
@@ -13,7 +19,7 @@
       </li>
     </ul>
     <div data-ng-hide="!cafes || cafes.length">
-      No cafes yet, why don't you
+      Loading cafes
       <a href="/#!/cafes/create">create one</a>?
     </div>
   </snap-content>
