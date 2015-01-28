@@ -12,14 +12,17 @@ body {
 
 body, html, section {
   -webkit-font-smoothing: antialiased;
-  height: 100%;
+  height: auto;
   width: 100%;
   }
 
 .map-container {
   height: 100%;
-  position: absolute;
   width: 100%;
+}
+
+#map-content {
+  background-color: #fff;
 }
 
 #map {
@@ -64,10 +67,10 @@ a {
   background: linear-gradient(360deg, rgba(164, 3, 31, .9) 20%, rgb(164, 3, 31) 80%);
 }
 
-.map-header {
+/*.map-header {
   position: absolute;
   z-index: 10;
-}
+}*/
 
 .header-title {
   -webkit-box-sizing: border-box;

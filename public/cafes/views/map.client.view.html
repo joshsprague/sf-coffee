@@ -1,11 +1,18 @@
-<section ng-controller='MapController'>
-  <div class='header map-header'>
-    <div class='header-title'>SF Coffee Map</div>
-    <div class='header-toolbar'>
-      <div class='header-toolbar-btn' ng-click='reloadCafes()'>Open Now</div>
+<section ng-controller="MapController">
+  <snap-drawer>
+    <p>Hello from drawer!</p>
+    <div class="header-toolbar-btn" ng-click="reloadCafes()">Open Now</div>
+    <button snap-close>Close</button>
+  </snap-drawer>
+  <snap-content id="map-content">
+    <div class="header map-header">
+    <div class="header-title" snap-toggle="">SF WiFi Coffee Map</div>
+    <div class="header-toolbar">
     </div>
   </div>
   <div class="map-container">
-    <div id='map'></div>
+    <div id="map"></div>
   </div>
+  </snap-content>
+
 </section>

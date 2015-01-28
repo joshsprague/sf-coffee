@@ -1,6 +1,6 @@
 var mainAppModuleName = 'sf-coffee';
 
-var mainAppModule = angular.module(mainAppModuleName, ['ngResource', 'ngRoute', 'cafes']);
+var mainAppModule = angular.module(mainAppModuleName, ['ngResource', 'ngRoute', 'cafes', 'snap']);
 
 mainAppModule.config(['$locationProvider',
   function($locationProvider) {

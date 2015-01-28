@@ -131,4 +131,7 @@ angular.module('cafes').controller('MapController',
       $scope.loadCafes(cafes);
     });
 
+    $scope.openSidebar = function() {
+      angular.element('.map-sidebar').css('display', 'block')
+    }
   }]);
