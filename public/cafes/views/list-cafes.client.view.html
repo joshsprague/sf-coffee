@@ -2,6 +2,7 @@
   <snap-drawer>
     <div class="nav">
       <div class="nav-item">
+        <i class="fa fa-compass fa-fw"></i>
         <a href="/#!/map">Cafe Map</a>
       </div>
     </div>
@@ -9,7 +10,10 @@
   </snap-drawer>
   <snap-content id="map-content">
     <div class="header">
-      <div class="header-title" snap-toggle="">Cafes</div>
+      <div class="nav-toggle" snap-toggle="">
+        <i class="fa fa-bars"></i>
+      </div>
+      <div class="header-title">Cafes</div>
     </div>
     <ul class="cafe-list">
       <li data-ng-repeat="cafe in cafes">

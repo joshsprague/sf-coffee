@@ -1,8 +1,12 @@
 <section ng-controller="MapController">
   <snap-drawer>
     <div class="nav">
-      <div class="nav-item" ng-click="reloadCafes()">Open Now</div>
+      <div class="nav-item" ng-click="reloadCafes()">
+        <i class="fa fa-clock-o fa-fw"></i>
+        <a>Open Now</a>
+      </div>
       <div class="nav-item">
+        <i class="fa fa-coffee fa-fw"></i>
         <a href="/#!/cafes">Cafe List</a>
       </div>
     </div>
@@ -10,13 +14,14 @@
   </snap-drawer>
   <snap-content id="map-content">
     <div class="header map-header">
-    <div class="header-title" snap-toggle="">SF WiFi Coffee Map</div>
-    <div class="header-toolbar">
+      <div class="nav-toggle" snap-toggle="">
+        <i class="fa fa-bars"></i>
+      </div>
+      <div class="header-title">SF WiFi Coffee Map</div>
     </div>
-  </div>
-  <div class="map-container">
-    <div id="map"></div>
-  </div>
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
   </snap-content>
 
 </section>

@@ -52,6 +52,9 @@ a {
   text-decoration: none;
 }
 
+i {
+  cursor: pointer;
+}
 .header {
   -moz-box-shadow: 0 0 6px rgba(0,0,0, 0.3);
   -webkit-box-shadow: 0 0 6px rgba(0,0,0, 0.3);
@@ -76,12 +79,10 @@ a {
 .header-title {
   -webkit-box-sizing: border-box;
   display: inline-block;
-  width: 20%;
-}
-
-.header-toolbar {
-  -webkit-box-sizing: border-box;
-  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
 }
 
 .snap-drawer {
@@ -102,6 +103,10 @@ a {
 .nav-item a {
   color: #b7b5b3;
   cursor: pointer;
+}
+
+.nav-toggle {
+  display: inline-block;
 }
 
 .time-selectors {
@@ -137,11 +142,7 @@ a {
     padding-left: 16px;
   }
   .header-title {
-    width: 50%;
-  }
-  .header-toolbar {
-    text-align: right;
-    width: 40%;
+    width: 80%;
   }
   .leaflet-control-zoom{
     display: none;
