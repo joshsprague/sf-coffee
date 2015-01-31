@@ -55,12 +55,13 @@ a {
 i {
   cursor: pointer;
 }
+
 .header {
   -moz-box-shadow: 0 0 6px rgba(0,0,0, 0.3);
   -webkit-box-shadow: 0 0 6px rgba(0,0,0, 0.3);
   -webkit-box-sizing: border-box;
   box-shadow: 0 0 6px rgba(0,0,0, 0.3);
-  color: #E5E7E6;
+  color: #232621;
   font-size: 20px;
   height: 5%;
   min-height: 50px;
