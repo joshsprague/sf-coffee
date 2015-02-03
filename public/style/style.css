@@ -112,10 +112,15 @@ i {
 .time-selectors > input {
 }
 
-.hours > ul{
+.hours td {
   font-size: 10px;
+  line-height: 1.1;
   list-style-type: none;
-  padding: 0;
+}
+
+.hours .day {
+  font-weight: bold;
+  padding-right: 4px;
 }
 
 .cafe-list {

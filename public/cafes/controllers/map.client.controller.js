@@ -75,25 +75,24 @@ angular.module('cafes').controller('MapController',
       });
 
       var getHoursTemplate = function(cafe) {
-        var template = "<div class='hours'><ul>"
+        var template = "<div class='hours'><table>"
         var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
         var formatHour = function(time) {
           time = time || '';
-          console.log('time', time);
           var militaryHour = parseInt(time.substring(0,2));
           var standardHour = ((militaryHour + 11) % 12) + 1;
           var amPm = militaryHour > 11 ? 'pm' : 'am';
           var minutes = time.substring(2);
 
-          return standardHour + ':' + minutes + ' ' + amPm;
+          return standardHour + ':' + minutes + amPm;
         };
 
         for (var i = 0; i < cafe.hours.open.length; i++) {
-          template = template + "<li>" + days[i] + ": " + formatHour(cafe.hours.open[i]) + " - " + formatHour(cafe.hours.close[i]) + "</li>";
+          template = template + "<tr><td class='day'>" + days[i] + "</td><td class='hour'>" + formatHour(cafe.hours.open[i]) + " - " + formatHour(cafe.hours.close[i]) + "</td></tr>";
         };
 
-        template = template + "</ul></div>";
+        template = template + "</table></div>";
 
         return template;
       };
