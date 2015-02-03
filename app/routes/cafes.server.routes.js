@@ -1,4 +1,5 @@
-var cafes = require('../../app/controllers/cafes.server.controller.js');
+var cafes = require('../../app/controllers/cafes.server.controller.js'),
+  users= require('../../app/controllers/users.server.controller.js');
 
 module.exports = function(app) {
   app.route('/api/cafes')
@@ -6,7 +7,7 @@ module.exports = function(app) {
     .post(cafes.create);
 
   app.route('/api/cafes/:cafeId')
-    .get(cafes.read)
+    .get(users.requiresLogin, cafes.read)
     .put(cafes.update)
     .delete(cafes.delete);
 
