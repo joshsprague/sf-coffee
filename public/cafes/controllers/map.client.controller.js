@@ -1,6 +1,6 @@
 angular.module('cafes').controller('MapController',
-  ['$scope', '$routeParams', '$location', 'Cafes',
-  function($scope, $routeParams, $location, Cafes) {
+  ['$scope', '$routeParams', '$location', 'Cafes', 'snapRemote',
+  function($scope, $routeParams, $location, Cafes, snapRemote) {
 
     $scope.layer = new L.StamenTileLayer("toner-lite");
     $scope.map = new L.Map("map", {
@@ -89,6 +89,7 @@ angular.module('cafes').controller('MapController',
 
       if (options) {
         cafes = $scope.findOpenNow(cafes);
+        snapRemote.close();
       }
       for (var i = 0; i < cafes.length; i++) {
         var marker = L.marker([cafes[i]["coordinates"]["longitude"], cafes[i]["coordinates"]["latitude"]], {icon: redIconBox});
