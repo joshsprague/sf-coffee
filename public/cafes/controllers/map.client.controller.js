@@ -79,18 +79,17 @@ angular.module('cafes').controller('MapController',
         var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
         var formatHour = function(time) {
-          console.log('time', time);
           time = time || '';
+          console.log('time', time);
           var militaryHour = parseInt(time.substring(0,2));
           var standardHour = ((militaryHour + 11) % 12) + 1;
           var amPm = militaryHour > 11 ? 'pm' : 'am';
           var minutes = time.substring(2);
-          console.log('min ', minutes);
+
           return standardHour + ':' + minutes + ' ' + amPm;
         };
 
         for (var i = 0; i < cafe.hours.open.length; i++) {
-          console.log(cafe.hours);
           template = template + "<li>" + days[i] + ": " + formatHour(cafe.hours.open[i]) + " - " + formatHour(cafe.hours.close[i]) + "</li>";
         };
 
