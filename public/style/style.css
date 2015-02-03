@@ -67,11 +67,6 @@ i {
   width: 100%;
 }
 
-/*.map-header {
-  position: absolute;
-  z-index: 10;
-}*/
-
 .header-title {
   -webkit-box-sizing: border-box;
   display: inline-block;
@@ -103,6 +98,11 @@ i {
 
 .nav-toggle {
   display: inline-block;
+}
+
+.local-time {
+  font-size: 12px;
+  padding-left: 5px;
 }
 
 .time-selectors {

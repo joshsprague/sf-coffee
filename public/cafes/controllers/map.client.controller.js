@@ -23,6 +23,8 @@ angular.module('cafes').controller('MapController',
       label: "Before 7"
     }];
 
+    $scope.format = "h:mm a";
+
     $scope.find = function() {
       $scope.cafes = Cafes.query();
     };
