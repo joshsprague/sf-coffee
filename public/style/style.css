@@ -42,12 +42,6 @@ i {
   cursor: pointer;
 }
 
-.map-header {
-  left: 0;
-  position: fixed;
-  top: 0;
-}
-
 .map-container {
   height: 100%;
   width: 100%;
@@ -71,6 +65,11 @@ i {
   min-height: 50px;
   padding: 12px 0 0 40px;
   width: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .header-title {
@@ -127,6 +126,10 @@ i {
 .hours .day {
   font-weight: bold;
   padding-right: 4px;
+}
+
+.cafe-container {
+  padding-top: 50px;
 }
 
 .cafe-list {
