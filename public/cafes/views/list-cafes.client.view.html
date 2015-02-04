@@ -18,7 +18,7 @@
     <div class="cafe-container">
       <ul class="cafe-list">
         <li data-ng-repeat="cafe in cafes">
-          <a data-ng-href="#!/cafes/{{cafe._id}}" data-ng-bind="cafe.name"></a>
+          <a data-ng-bind="cafe.name"></a>
           <br>
           <p class="cafe-description" data-ng-bind-html="renderHtml(cafe.description)"></p>
         </li>
