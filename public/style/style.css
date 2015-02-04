@@ -16,20 +16,6 @@ body, html, section {
   width: 100%;
   }
 
-.map-container {
-  height: 100%;
-  width: 100%;
-}
-
-#map-content {
-  background-color: #fff;
-}
-
-#map {
-  height: 100%;
-  width: 100%;
-}
-
 h1 {
   background-color: #222;
   color: #fff;
@@ -54,6 +40,24 @@ a {
 
 i {
   cursor: pointer;
+}
+
+.map-header {
+  min-height: 50px;
+}
+
+.map-container {
+  height: 95%;
+  width: 100%;
+}
+
+#map-content {
+  background-color: #fff;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }
 
 .header {
