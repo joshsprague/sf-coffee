@@ -9,6 +9,7 @@
     "angular-leaflet-directive": "~0.7.11",
     "lodash": "~2.4.1",
     "angular-snap": "~1.7.0",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "leaflet.markerclusterer": "~0.4.0"
   }
 }

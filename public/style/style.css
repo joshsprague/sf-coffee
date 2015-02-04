@@ -43,11 +43,13 @@ i {
 }
 
 .map-header {
-  min-height: 50px;
+  left: 0;
+  position: fixed;
+  top: 0;
 }
 
 .map-container {
-  height: 95%;
+  height: 100%;
   width: 100%;
 }
 

@@ -8,20 +8,11 @@ angular.module('cafes').controller('MapController',
       zoom: 12,
       zoomControl: false
     });
-    $scope.markers = new L.FeatureGroup();
+    $scope.markers = new L.MarkerClusterGroup({
+      "disableClusteringAtZoom": 15
+    });
 
     $scope.map.addControl(L.control.zoom({position: 'bottomright'}));
-
-    $scope.openTimeOptions = [{
-      time: 500,
-      label: "Before 5"
-    }, {
-      time: 600,
-      label: "Before 6"
-    }, {
-      time: 700,
-      label: "Before 7"
-    }];
 
     $scope.format = "h:mm a";
 
