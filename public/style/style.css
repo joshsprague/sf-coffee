@@ -145,12 +145,15 @@ i {
   max-width: 600px;
 }
 
-.marker-cluster-small, .marker-cluster-medium {
-  background-color: rgba(230, 0, 18, 0.6) !important;
+.marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
+  background-color: rgba(217, 0, 29, 0.6) !important;
+  color: #fff;
 }
 
-.marker-cluster-small > div, .marker-cluster-medium > div{
-  background-color: rgba(230, 0, 18, 0.6) !important;
+.marker-cluster-small > div, .marker-cluster-medium > div, .marker-cluster-large > div{
+  background-color: rgba(217, 0, 29, 0.6) !important;
+  font: 14px "Open Sans", Arial, Helvetica, sans-serif !important;
+  font-weight: bold !important;
 }
 
 /* Smartphones (portrait) ----------- */
