@@ -2,7 +2,12 @@
   "name": "sf-coffee",
   "version": "0.0.1",
   "description": "Map of SF cafes with WiFi",
+  "homepage": "https://sfcoffeemap.com",
   "repository": "https://github.com/joshsprague/sf-coffee",
+  "bugs": {
+    "url" : "https://github.com/joshsprague/sf-coffee/issues",
+    "email" : "joshjsprague@gmail.com"
+  },
   "author": "Josh Sprague",
   "dependencies": {
     "body-parser": "~1.8.0",
@@ -18,6 +23,9 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-stylus": "^2.0.1",
+    "nib": "^1.1.0",
     "nodemon": "^1.3.2"
   },
   "engines": {
