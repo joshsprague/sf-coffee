@@ -145,6 +145,11 @@ i {
   max-width: 600px;
 }
 
+.cafe-list-header {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
 .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
   background-color: rgba(217, 0, 29, 0.6) !important;
   color: #fff;
