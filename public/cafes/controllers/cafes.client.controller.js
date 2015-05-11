@@ -1,6 +1,10 @@
-angular.module('cafes').controller('CafesController',
-  ['$scope', '$routeParams', '$location', '$sce', 'Cafes',
-  function($scope, $routeParams, $location, $sce, Cafes) {
+angular
+  .module('cafes')
+  .controller('CafesController', CafesController);
+
+  CafesController.$inject = ['$scope', '$routeParams', '$location', '$sce', 'Cafes']
+
+  function CafesController($scope, $routeParams, $location, $sce, Cafes) {
 
     $scope.find = function() {
       $scope.cafes = Cafes.query();
@@ -24,4 +28,4 @@ angular.module('cafes').controller('CafesController',
       return $sce.trustAsHtml(html_code);
     };
 
-  }]);
+  };

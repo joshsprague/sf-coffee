@@ -1,6 +1,10 @@
-angular.module('cafes').controller('MapController',
-  ['$scope', '$routeParams', '$location', 'Cafes', 'snapRemote',
-  function($scope, $routeParams, $location, Cafes, snapRemote) {
+angular
+  .module('cafes')
+  .controller('MapController', MapController);
+
+  MapController.$inject = ['$scope', '$routeParams', '$location', 'Cafes', 'snapRemote']
+
+  function MapController($scope, $routeParams, $location, Cafes, snapRemote) {
 
     $scope.layer = new L.StamenTileLayer("toner-lite");
     $scope.map = new L.Map("map", {
@@ -138,4 +142,4 @@ angular.module('cafes').controller('MapController',
     $scope.openSidebar = function() {
       angular.element('.map-sidebar').css('display', 'block')
     }
-  }]);
+  }
