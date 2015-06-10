@@ -21,7 +21,7 @@
 
       function activate() {
         return getCafes().then(function() {
-          console.log('Activated Cafes View', vm.cafes);
+          console.log('Activated Cafes View');
         });
       }
 

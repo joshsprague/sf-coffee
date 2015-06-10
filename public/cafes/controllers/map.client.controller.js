@@ -2,9 +2,9 @@ angular
   .module('cafes')
   .controller('MapController', MapController);
 
-  MapController.$inject = ['$routeParams', '$location', 'Cafes', 'snapRemote']
+  MapController.$inject = ['$routeParams', '$location', 'Cafes', 'snapRemote', 'dataservice']
 
-  function MapController($routeParams, $location, Cafes, snapRemote) {
+  function MapController($routeParams, $location, Cafes, snapRemote, dataservice) {
     var vm = this;
 
     vm.cafes = [];
@@ -30,11 +30,20 @@ angular
 
     vm.map.addControl(L.control.zoom({position: 'bottomright'}));
 
+    activate();
 
+    function activate() {
+        return getCafes().then(function() {
+          console.log('Activated Cafes View', vm.cafes);
+        });
+      }
 
-    function find() {
-      vm.cafes = Cafes.query();
-    };
+      function getCafes() {
+        return dataservice.getCafes().then(function(data) {
+          vm.cafes = data;
+          return vm.cafes;
+        })
+      }
 
     function loadMap() {
 
