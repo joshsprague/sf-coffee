@@ -1,3 +1,5 @@
+(function() {
+
 angular
   .module('cafes')
   .controller('MapController', MapController);
@@ -150,3 +152,5 @@ angular
       angular.element('.map-sidebar').css('display', 'block')
     }
   }
+
+})();

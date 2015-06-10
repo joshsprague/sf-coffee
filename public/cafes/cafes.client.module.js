@@ -1,1 +1,3 @@
-angular.module('cafes', []);
+(function(){
+  angular.module('cafes', []);
+})();

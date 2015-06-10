@@ -1,23 +1,32 @@
-angular.module('cafes').directive('myCurrentTime', ['$interval', 'dateFilter',
-function($interval, dateFilter) {
+(function() {
 
-  return function(scope, element, attrs) {
-    var format,  // date format
-        stopTime;
+  angular
+    .module('cafes')
+    .directive('myCurrentTime', myCurrentTime);
 
-    function updateTime() {
-      element.text(dateFilter(new Date(), format));
-    }
+    myCurrentTime.$inject = ['$interval', 'dateFilter'];
 
-    scope.$watch(attrs.myCurrentTime, function(value) {
-      format = value;
-      updateTime();
-    });
+    function myCurrentTime($interval, dateFilter) {
 
-    stopTime = $interval(updateTime, 1000);
+      return function(scope, element, attrs) {
+        var format,  // date format
+            stopTime;
 
-    element.on('$destroy', function() {
-      $interval.cancel(stopTime);
-    });
-  }
-}]);
+        function updateTime() {
+          element.text(dateFilter(new Date(), format));
+        }
+
+        scope.$watch(attrs.myCurrentTime, function(value) {
+          format = value;
+          updateTime();
+        });
+
+        stopTime = $interval(updateTime, 1000);
+
+        element.on('$destroy', function() {
+          $interval.cancel(stopTime);
+        });
+      }
+    };
+
+})();
