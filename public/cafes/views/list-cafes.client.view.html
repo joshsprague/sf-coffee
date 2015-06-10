@@ -1,4 +1,4 @@
-<section data-ng-controller="CafesController" data-ng-init="find()">
+<section data-ng-controller="CafesController as vm">
   <snap-drawer>
     <div class="nav">
       <div class="nav-item">
@@ -17,14 +17,14 @@
     </div>
     <div class="cafe-container">
       <ul class="cafe-list">
-        <li data-ng-repeat="cafe in cafes">
+        <li data-ng-repeat="cafe in vm.cafes">
           <a data-ng-bind="cafe.name"></a>
           <br>
-          <p class="cafe-description" data-ng-bind-html="renderHtml(cafe.description)"></p>
+          <p class="cafe-description" data-ng-bind-html="vm.renderHtml(cafe.description)"></p>
         </li>
       </ul>
     </div>
-    <div data-ng-hide="!cafes || cafes.length">
+    <div data-ng-hide="!vm.cafes || vm.cafes.length">
       Loading cafes
     </div>
   </snap-content>
