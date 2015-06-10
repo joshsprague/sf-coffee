@@ -2,29 +2,37 @@ angular
   .module('cafes')
   .controller('CafesController', CafesController);
 
-  CafesController.$inject = ['$scope', '$routeParams', '$location', '$sce', 'Cafes']
+  CafesController.$inject = ['$routeParams', '$location', '$sce', 'Cafes']
 
-  function CafesController($scope, $routeParams, $location, $sce, Cafes) {
+  function CafesController($routeParams, $location, $sce, Cafes) {
+    var vm = this;
 
-    $scope.find = function() {
-      $scope.cafes = Cafes.query();
+    vm.cafes = [];
+    vm.cafe = {};
+    vm.find = find;
+    vm.findOne = findOne;
+    vm.update = update;
+    vm.renderHtml = renderHtml;
+
+    function find() {
+      vm.cafes = Cafes.query();
     };
 
-    $scope.findOne = function() {
-      $scope.cafe = Cafes.get({
+    function findOne() {
+      vm.cafe = Cafes.get({
         cafeId: $routeParams.cafeId
       });
     };
 
-    $scope.update = function() {
-      $scope.cafe.$update(function() {
-        $location.path('cafes/' + $scope.cafe._id);
+    function update() {
+      vm.cafe.$update(function() {
+        $location.path('cafes/' + vm.cafe._id);
       }, function(errorResponse) {
-        $scope.error = errorResponse.data.message;
+        vm.error = errorResponse.data.message;
       });
     };
 
-    $scope.renderHtml = function(html_code) {
+    function renderHtml(html_code) {
       return $sce.trustAsHtml(html_code);
     };
 
