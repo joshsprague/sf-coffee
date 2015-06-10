@@ -36,7 +36,9 @@ angular
 
     function activate() {
         return getCafes().then(function() {
-          console.log('Activated Cafes View', vm.cafes);
+          console.log('Activated Map View');
+          vm.loadMap();
+          vm.loadCafes(vm.cafes);
         });
       }
 
@@ -140,13 +142,6 @@ angular
     function reloadCafes() {
       vm.loadCafes(vm.cafes, "open")
     };
-
-    var cafes = Cafes.query(function() {
-      vm.cafes = cafes;
-
-      vm.loadMap();
-      vm.loadCafes(cafes);
-    });
 
     function openSidebar() {
       angular.element('.map-sidebar').css('display', 'block')
