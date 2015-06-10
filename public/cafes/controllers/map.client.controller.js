@@ -2,63 +2,61 @@ angular
   .module('cafes')
   .controller('MapController', MapController);
 
-  MapController.$inject = ['$scope', '$routeParams', '$location', 'Cafes', 'snapRemote']
+  MapController.$inject = ['$routeParams', '$location', 'Cafes', 'snapRemote']
 
-  function MapController($scope, $routeParams, $location, Cafes, snapRemote) {
+  function MapController($routeParams, $location, Cafes, snapRemote) {
+    var vm = this;
 
-    $scope.layer = new L.StamenTileLayer("toner-lite");
-    $scope.map = new L.Map("map", {
+    vm.cafes = [];
+    vm.cafe = {};
+    vm.format = "h:mm a";
+    vm.layer = new L.StamenTileLayer("toner-lite");
+    vm.map = new L.Map("map", {
       center: new L.LatLng(37.75, -122.45),
       zoom: 12,
       zoomControl: false
     });
-    $scope.markers = new L.MarkerClusterGroup({
+    vm.markers = new L.MarkerClusterGroup({
       "disableClusteringAtZoom": 15
     });
 
-    $scope.map.addControl(L.control.zoom({position: 'bottomright'}));
+    vm.clearMarkers = clearMarkers;
+    vm.find = find;
+    vm.findOpenNow = findOpenNow;
+    vm.loadCafes = loadCafes;
+    vm.loadMap = loadMap;
+    vm.openSidebar = openSidebar;
+    vm.reloadCafes = reloadCafes;
 
-    $scope.format = "h:mm a";
+    vm.map.addControl(L.control.zoom({position: 'bottomright'}));
 
-    $scope.find = function() {
-      $scope.cafes = Cafes.query();
+
+
+    function find() {
+      vm.cafes = Cafes.query();
     };
 
-    $scope.findOne = function() {
-      $scope.cafe = Cafes.get({
-        cafeId: $routeParams.cafeId
-      });
-    };
+    function loadMap() {
 
-    $scope.update = function() {
-      $scope.cafe.$update(function() {
-        $location.path('cafes/' + $scope.cafe._id);
-      }, function(errorResponse) {
-        $scope.error = errorResponse.data.message;
-      });
-    };
-
-    $scope.loadMap = function() {
-
-      $scope.map.addLayer($scope.layer);
+      vm.map.addLayer(vm.layer);
 
       //Set map to start at mobile location
-      $scope.map.locate({setView: true, maxZoom: 16});
+      vm.map.locate({setView: true, maxZoom: 16});
 
       function onLocationFound(e) {
         var radius = e.accuracy / 2;
-        L.marker(e.latlng).addTo($scope.map)
+        L.marker(e.latlng).addTo(vm.map)
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
-        L.circle(e.latlng, radius).addTo($scope.map);
+        L.circle(e.latlng, radius).addTo(vm.map);
       }
 
       //Show error if can't get location
-      $scope.map.on('locationfound', onLocationFound);
+      vm.map.on('locationfound', onLocationFound);
     };
 
-    $scope.loadCafes = function(cafes, options) {
-      if ($scope.markers) {
-        $scope.clearMarkers();
+    function loadCafes(cafes, options) {
+      if (vm.markers) {
+        vm.clearMarkers();
       }
 
       var redIcon = L.icon({
@@ -69,11 +67,11 @@ angular
         iconUrl: 'img/redCoffee.png'
       });
 
-      var getHoursTemplate = function(cafe) {
+      function getHoursTemplate(cafe) {
         var template = "<div class='hours'><table>"
         var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-        var formatHour = function(time) {
+        function formatHour(time) {
           time = time || '';
           var militaryHour = parseInt(time.substring(0,2));
           var standardHour = ((militaryHour + 11) % 12) + 1;
@@ -93,25 +91,25 @@ angular
       };
 
       if (options) {
-        cafes = $scope.findOpenNow(cafes);
+        cafes = vm.findOpenNow(cafes);
         snapRemote.close();
       }
       for (var i = 0; i < cafes.length; i++) {
         var marker = L.marker([cafes[i]["coordinates"]["longitude"], cafes[i]["coordinates"]["latitude"]], {icon: redIconBox});
         marker.bindPopup(cafes[i]["name"]+"<br>"+ getHoursTemplate(cafes[i]));
 
-        $scope.markers.addLayer(marker);
+        vm.markers.addLayer(marker);
       };
 
-      $scope.map.addLayer($scope.markers);
+      vm.map.addLayer(vm.markers);
     };
 
-    $scope.clearMarkers = function() {
-      $scope.map.removeLayer($scope.markers);
-      $scope.markers.clearLayers();
+    function clearMarkers() {
+      vm.map.removeLayer(vm.markers);
+      vm.markers.clearLayers();
     };
 
-    $scope.findOpenNow = function(cafes) {
+    function findOpenNow(cafes) {
       var openCafes = [];
       var today = new Date();
       var day = today.getDay();
@@ -128,18 +126,18 @@ angular
       return openCafes;
     };
 
-    $scope.reloadCafes = function() {
-      $scope.loadCafes($scope.cafes, "open")
+    function reloadCafes() {
+      vm.loadCafes(vm.cafes, "open")
     };
 
     var cafes = Cafes.query(function() {
-      $scope.cafes = cafes;
+      vm.cafes = cafes;
 
-      $scope.loadMap();
-      $scope.loadCafes(cafes);
+      vm.loadMap();
+      vm.loadCafes(cafes);
     });
 
-    $scope.openSidebar = function() {
+    function openSidebar() {
       angular.element('.map-sidebar').css('display', 'block')
     }
   }
